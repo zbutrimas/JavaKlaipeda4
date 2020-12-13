@@ -34,5 +34,6 @@ public class AssertJTest {
                 .isLessThan(6)
                 .isGreaterThan(3)
                 .isBetween(0, 10);
+
     }
 }
