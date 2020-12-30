@@ -4,48 +4,40 @@ public class HouseMain {
 
     public static void main(String[] args) {
 
-        House house1 = new House(150, "Vilnius", 2010, "fitted");
-        House house2 = new House(178, "Kretinga", 2019, "partiallyFinished");
-        House house3 = new House(205, "Dauparai", 2004, "not finished");
-
-        if (2010 > 2019 && 2010 > 2004) {
-            System.out.println("house1 newest house");
-        } else if (2019 > 2010 && 2019 > 2004) {
-            System.out.println("house2 newest house");
-        } else {
-            System.out.println("house3 newest house");
-        }
-
-
-        String condition = new String();
-        if (condition != "fitted") {
-            System.out.println("house1");
-        } else {
-            System.out.println("house2 or house3");
-        }
-
-
-        if (150 < 178 && 150 < 205) {
-            System.out.println("house1 smallest area");
-        } else if (178 < 150 && 178 < 205) {
-            System.out.println("house2 smallest area");
-        } else {
-            System.out.println("house3 smallest area");
-
-
-        }
+        House[] houses = new House[3];
+        houses[0] = new House(20.2, "", 5, "");
     }
 
+    public static House getNewestHouse(House[] houses) {
+        House newestHouse = houses[0];
 
-    public int builtYear() {
-        return 0;
+        for (int i = 0; i < houses.length; i++) {
+            if (newestHouse.getBuiltYear() < houses[i].getBuiltYear()) {
+                newestHouse = houses[i];
+            }
+        }
+        return newestHouse;
     }
 
-    public int area() {
-        return 0;
+    public static int getNumberOfFittedHouses(House[] houses) {
+        int fittedHousesCounter = 0;
+
+        for (int i = 0; i < houses.length; i++) {
+            if (houses[i].getCondition().equals("fitted")) {
+                fittedHousesCounter++;
+            }
+        }
+        return fittedHousesCounter;
     }
 
-    public int condition() {
-        return 0;
+    public static House getSmallestHouses(House[] houses) {
+        House smallestHouse = houses[0];
+
+        for (int i = 0; i < houses.length; i++) {
+            if (smallestHouse.getHouseArea() > houses[i].getHouseArea()) {
+                smallestHouse = houses[i];
+            }
+        }
+        return smallestHouse;
     }
 }

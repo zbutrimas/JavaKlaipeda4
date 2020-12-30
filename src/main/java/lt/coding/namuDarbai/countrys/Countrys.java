@@ -3,14 +3,10 @@ package lt.coding.namuDarbai.countrys;
 public class Countrys {
 
     private String name;
-    private long co2Emission;
-    private String pollutionFactor;
+    private int co2Emission;
+    private String pollutionFactor; // animal husbandry`, `transportation`, `factories`
 
-    public Countrys(String name) {
-        this.name = name;
-    }
-
-    public Countrys(String name, long co2Emission, String pollutionFactor){
+    public Countrys(String name, int co2Emission, String pollutionFactor) {
         this.name = name;
         this.co2Emission = co2Emission;
         this.pollutionFactor = pollutionFactor;
@@ -20,23 +16,11 @@ public class Countrys {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getCo2Emission() {
+        return co2Emission;
     }
 
     public String getPollutionFactor() {
         return pollutionFactor;
-    }
-
-    public void setPollutionFactor(String pollutionFactor) {
-        this.pollutionFactor = pollutionFactor;
-    }
-
-    public long getCo2Emission() {
-        return co2Emission;
-    }
-
-    public void setCo2Emission(long co2Emission) {
-        this.co2Emission = co2Emission;
     }
 }

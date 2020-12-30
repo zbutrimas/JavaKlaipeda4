@@ -2,25 +2,15 @@ package lt.coding.namuDarbai.houseProject;
 
 public class House {
 
-        private int area;
-        private String district;
-        private int builtYear;
-        private String condition;
+    private double houseArea;
+    private String district;
+    private int builtYear;
+    private String condition; //    fitted`, `partially finished`, `not finished`
 
-    public House(int area, String district, int builtYear, String condition){
-            this.area = area;
-            this.district = district;
-            this.builtYear = builtYear;
-            this.condition = condition;
-        }
-
-    public House() {
-
-    }
-
-    public String getCondition() { return condition; }
-
-    public void setCondition(String condition) {
+    public House(double houseArea, String district, int builtYear, String condition) {
+        this.houseArea = houseArea;
+        this.district = district;
+        this.builtYear = builtYear;
         this.condition = condition;
     }
 
@@ -28,23 +18,20 @@ public class House {
         return builtYear;
     }
 
-    public void setBuiltYear(int builtYear) {
-        this.builtYear = builtYear;
+    public double getHouseArea() {
+        return houseArea;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getCondition() {
+        return condition;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    public int getArea() {
-        return area;
-    }
-
-    public void setArea(int area) {
-        this.area = area;
+    public String toString() {
+        return "House{" +
+                "houseArea=" + houseArea +
+                ", district='" + district + '\'' +
+                ", builtYear=" + builtYear +
+                ", condition='" + condition + '\'' +
+                '}';
     }
 }
