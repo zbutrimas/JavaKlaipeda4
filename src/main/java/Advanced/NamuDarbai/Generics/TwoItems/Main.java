@@ -1,4 +1,4 @@
-package Advanced.NamuDarbai.Generics;
+package Advanced.NamuDarbai.Generics.TwoItems;
 
 public class Main {
     public static void main(String[] args) {
