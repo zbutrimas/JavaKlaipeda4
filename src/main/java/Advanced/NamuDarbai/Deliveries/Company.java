@@ -1,8 +1,9 @@
 package Advanced.NamuDarbai.Deliveries;
+
 public class Company extends Deliveries {
 
-    String name;
-    String address;
+    private String name;
+    private String address;
     private Gadget gadget;
 
     @Override
@@ -12,21 +13,18 @@ public class Company extends Deliveries {
     public Gadget getGadget(){
         return gadget;
     }
-    @Override
-    public String displayAddress() {
-        return address;
-    }
-    public Company(String name, String address, Gadget gadget){      //konstruktorius
-        super.name = name;
-        super.address = address;
-        this.gadget = gadget;
-    }
-    @Override
     public double getPrice() {
         return price;
     }
 
+    public Company(String name, String address, Gadget gadget) {
+        this.name = name;
+        this.address = address;
+        this.gadget = gadget;
+    }
+
     public String toString() {
-        return String.format( "Company with name: %s has most expensive gadget with price %f \n", name, gadget.getPrice());
+        return String.format( "Company with name: %s has most expensive gadget %s with price %s \n",
+                name, gadget.gadgetType, gadget.getPrice());
     }
 }

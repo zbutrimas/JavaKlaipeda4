@@ -1,6 +1,6 @@
 package Advanced.NamuDarbai.Company;
 
-public class Company extends Device{
+public class Company extends Device {
 
     private String name;
     private String address;
