@@ -1,36 +1,74 @@
 package Advanced.NamuDarbai.Deliveries;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
-
-import static Advanced.NamuDarbai.Deliveries.GadgetType.*;
 
 public class DeliveriesMain {
 
-    public static Company getMostExpensiveGadgetCompany(List<Company> companies){
-        Company mostExpensiveGadgetCompany = companies.get(0);
+    public static void main(String[] args) {
+        List<Person> persons = buildPersonList();
+        List<Company> companies = buildCompanyList();
+
+        Company company = findCompanyWithMostExpensiveGadget(companies);
+        System.out.println(company.toString());
+
+        willPeopleGetDeliveries(persons, companies);
+        printAllPeopleDeliveries(persons);
+    }
+
+    private static Company findCompanyWithMostExpensiveGadget(List<Company> companies) {
+        Company companyWithExpensiveGadget = companies.get(0);
+
         for (Company company : companies) {
-            if (company.getGadget().getPrice() > mostExpensiveGadgetCompany.getGadget().getPrice()) {
-                mostExpensiveGadgetCompany = company;
+            if (companyWithExpensiveGadget.getGadget().getPrice() < company.getGadget().getPrice()) {
+                companyWithExpensiveGadget = company;
             }
         }
-        return mostExpensiveGadgetCompany;
+        return companyWithExpensiveGadget;
     }
-    public static void main(String[] args) {
 
-        Person person1 = new Person("Jonas", "Danes g.15", PHONE, 2020 - 12 - 12);
-        Person person2 = new Person("Antanas", "Sausio g.178", LAPTOP, 2021 - 1 - 18);
-        Person person3 = new Person("Petras", "Molo g.87", TV, 2021 - 2 - 8);
-        Company company1 = new Company("Telia", "Klaipeda", new Gadget(PHONE, 1000, new Courier("DPD", "Klaipeda", 2020 - 12 - 28)));
-        Company company2 = new Company("Bite", "Vilnius", new Gadget(LAPTOP, 1549, new Courier("LTPastas", "Vilnius", 2021 - 1 - 28)));
-        Company company3 = new Company("Tele2", "Kaunas", new Gadget(TV, 2299, new Courier("Omniva", "Klaipeda", 2021 - 2 - 14)));
+    private static void willPeopleGetDeliveries(List<Person> persons, List<Company> companies) {
+        for (Person person : persons) {
+            for (GadgetType gadgetType : person.getGadgetTypes()) {
+                for (Company company : companies) {
+                    if (gadgetType.equals(company.getGadget().getGadgetType())) {
+                        if (person.getDeliverUntil().isAfter(company.getGadget().getCourier().getDeliveryDate())) {
+                            person.setWillGetDeliveries(true);
+                        } else {
+                            person.setWillGetDeliveries(false);
+                            break;
+                        }
 
-        List<Company> companies = new ArrayList<>();
-        companies.add(company1);
-        companies.add(company2);
-        companies.add(company3);
+                    }
+                }
+            }
+        }
+    }
 
-        System.out.println("Company, that has most expensive gadget is:  "+
-                getMostExpensiveGadgetCompany(companies));
+    private static void printAllPeopleDeliveries(List<Person> persons) {
+        for (Person person : persons) {
+            if (person.isWillGetDeliveries()) {
+                System.out.println(person.toString());
+            }
+        }
+    }
+
+    private static List<Person> buildPersonList() {
+        return Arrays.asList(
+                new Person("Antanas", "Seskines g. 12", Arrays.asList(GadgetType.TV), LocalDate.parse("2020-02-20")),
+                new Person("Gediminas", "Geliu g. 1", Arrays.asList(GadgetType.PERSONAL_COMPUTER, GadgetType.TV), LocalDate.parse("2020-02-10")),
+                new Person("Juozapas", "Geliu g. 64", Arrays.asList(GadgetType.MICRO_CONTROLLER, GadgetType.PHONE, GadgetType.TV), LocalDate.parse("2020-03-30"))
+        );
+    }
+
+    private static List<Company> buildCompanyList() {
+        return Arrays.asList(
+                new Company("Kilobaitas", "Varliu g. 121", new Gadget(1202, GadgetType.TV, new Courier("DPD", "Oro uosto g. 64", LocalDate.parse("2020-03-01")))),
+                new Company("Varle", "Tigru g. 4", new Gadget(946, GadgetType.PHONE, new Courier("LP", "Express,Giliu g. 101", LocalDate.parse("2020-02-01")))),
+                new Company("Pigu", "Pakabu g. 11", new Gadget(4021, GadgetType.PERSONAL_COMPUTER, new Courier("DPD", "Vilniaus g. 14", LocalDate.parse("2020-01-12")))),
+                new Company("Brangu", "Driezu g. 16", new Gadget(760, GadgetType.LAPTOP, new Courier("Greitos siuntos", "Kauno g. 94", LocalDate.parse("2020-01-01")))),
+                new Company("1a", "Pieniu g. 953", new Gadget(98, GadgetType.MICRO_CONTROLLER, new Courier("Letos siuntos", "Stabdziu g. 50", LocalDate.parse("2020-02-17"))))
+        );
     }
 }

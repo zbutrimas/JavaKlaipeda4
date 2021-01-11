@@ -1,28 +1,28 @@
 package Advanced.NamuDarbai.Generics.TwoItems;
 
-public class TwoItems {
+public class TwoItems<T> {
 
-    private int entry1;
-    private String entry2;
+    private T entry1;
+    private T entry2;
 
-    public TwoItems(int entry1, String entry2) {
+    public TwoItems(T entry1, T entry2) {
         this.entry1 = entry1;
         this.entry2 = entry2;
     }
 
-    public int getEntry1() {
+    public T getEntry1() {
         return entry1;
     }
 
-    public String getEntry2() {
+    public T getEntry2() {
         return entry2;
     }
 
-    public int toString(int entry1) {
-        return entry1;
-    }
-
-    public String toString(String entry2) {
-        return entry2;
+    @Override
+    public String toString() {
+        return "TwoItems{" +
+                "entry1=" + entry1 +
+                ", entry2=" + entry2 +
+                '}';
     }
 }

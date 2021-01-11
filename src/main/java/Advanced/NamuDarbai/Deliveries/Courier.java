@@ -1,26 +1,17 @@
 package Advanced.NamuDarbai.Deliveries;
 
-public class Courier extends Deliveries {
-    public String name;
-    public String deliveredFrom;
-    public int date; // lygint su person obj datos lauku;
+import java.time.LocalDate;
 
-    public Courier(String name, String deliveredFrom, int date) {   //konstruktorius
-        super.name = name;
-        this.deliveredFrom = deliveredFrom;
-        this.date = date;
+public class Courier extends Location {
+
+    private LocalDate deliveryDate;
+
+    public Courier(String name, String address, LocalDate deliveryDate) {
+        super(name, address);
+        this.deliveryDate = deliveryDate;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    public String getDeliveredFrom() {
-        return deliveredFrom;
-    }
-
-    public int getDate() {
-        return date;
+    public LocalDate getDeliveryDate() {
+        return deliveryDate;
     }
 }

@@ -1,0 +1,94 @@
+{
+  "staffList": [
+    {
+      "name": "John",
+      "age": 24,
+      "position": [
+        "CTO",
+        "FOUNDER",
+        "Director"
+      ],
+      "skills": [
+        "Java",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "salary": {
+        "Monthly": 20.4,
+        "Yearly": 400.5
+      }
+    },
+    {
+      "name": "John",
+      "age": 24,
+      "position": [
+        "CTO",
+        "FOUNDER",
+        "Director"
+      ],
+      "skills": [
+        "Java",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "salary": {
+        "Monthly": 20.4,
+        "Yearly": 400.5
+      }
+    },
+    {
+      "name": "John",
+      "age": 24,
+      "position": [
+        "CTO",
+        "FOUNDER",
+        "Director"
+      ],
+      "skills": [
+        "Java",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "salary": {
+        "Monthly": 20.4,
+        "Yearly": 400.5
+      }
+    },
+    {
+      "name": "John",
+      "age": 24,
+      "position": [
+        "CTO",
+        "FOUNDER",
+        "Director"
+      ],
+      "skills": [
+        "Java",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "salary": {
+        "Monthly": 20.4,
+        "Yearly": 400.5
+      }
+    },
+    {
+      "name": "John",
+      "age": 24,
+      "position": [
+        "CTO",
+        "FOUNDER",
+        "Director"
+      ],
+      "skills": [
+        "Java",
+        "Kotlin",
+        "JavaScript"
+      ],
+      "salary": {
+        "Monthly": 20.4,
+        "Yearly": 400.5
+      }
+    }
+  ]
+}

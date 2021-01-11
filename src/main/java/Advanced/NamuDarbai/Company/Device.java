@@ -36,7 +36,10 @@ public class Device{
         return description;
     }
 
-
+    public String toString() {
+        return String.format("Most expensive device price %s \n",
+                getPrice());
+    }
 
     }
 

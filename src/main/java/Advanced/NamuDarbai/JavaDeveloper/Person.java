@@ -1,15 +1,15 @@
 package Advanced.NamuDarbai.JavaDeveloper;
 
-public class Person extends Developer{
+public abstract class Person {
 
-    private String name;
+    protected String name;
 
-    public Person(String name,int ageOfExperience) {
-        super(ageOfExperience);
+    public Person(String name) {
         this.name = name;
+        System.out.println(Person.class.getSimpleName() + " constructor is called");
     }
 
-    public String getName() {
-        return name;
+    protected String textInCapital(String text) {
+        return text.toUpperCase();
     }
 }

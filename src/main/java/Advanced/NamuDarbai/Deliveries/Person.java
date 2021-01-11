@@ -1,18 +1,38 @@
 package Advanced.NamuDarbai.Deliveries;
 
-public class Person extends Deliveries {
-    String name;
-    String deliveryAddress;
-    GadgetType gadgetType;
-    int deliverUntil;
-    int LocalDate;
-    public Person(String name, String deliveryAddress, GadgetType gadgetType, int LocalDate){  // konstruktorius
-        this.name = name;
-        this.deliveryAddress = deliveryAddress;
-        this.gadgetType = gadgetType;
-        this.LocalDate = LocalDate;
+import javax.xml.namespace.QName;
+import java.time.LocalDate;
+import java.util.List;
+
+public class Person extends Location {
+
+    private List<GadgetType> gadgetTypes;
+    private LocalDate deliverUntil;
+    private boolean willGetDeliveries;
+
+    public Person(String name, String address, List<GadgetType> gadgetTypes, LocalDate deliverUntil) {
+        super(name, address);
+        this.gadgetTypes = gadgetTypes;
+        this.deliverUntil = deliverUntil;
     }
-    public int setDeliverUntil(java.time.LocalDate date){
-        return LocalDate;
+
+    public List<GadgetType> getGadgetTypes() {
+        return gadgetTypes;
+    }
+
+    public LocalDate getDeliverUntil() {
+        return deliverUntil;
+    }
+
+    public boolean isWillGetDeliveries() {
+        return willGetDeliveries;
+    }
+
+    public void setWillGetDeliveries(boolean willGetDeliveries) {
+        this.willGetDeliveries = willGetDeliveries;
+    }
+
+    public String toString() {
+        return String.format("%s %s will get all deliveries! \n", name, address);
     }
 }

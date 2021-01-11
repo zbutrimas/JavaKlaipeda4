@@ -4,10 +4,15 @@ public class Company extends Device {
 
     private String name;
     private String address;
-    private String productionType;
+    private ProductionType productionType;
     private String devices;
 
-    public Company(String name, String address, String productionType, String devices) {
+    @Override
+    public double getPrice() {
+        return super.getPrice();
+    }
+
+    public Company(String name, String address, ProductionType productionType, String devices) {
         super();
         this.name = name;
         this.address = address;
@@ -15,19 +20,4 @@ public class Company extends Device {
         this.devices = devices;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getProductionType() {
-        return productionType;
-    }
-
-    public String getDevices() {
-        return devices;
-    }
 }

@@ -1,10 +1,12 @@
 package Advanced.NamuDarbai.Deliveries;
 
-enum GadgetType{
-    LAPTOP,
-    MICRO_CONTROLLER,
-    PERSONAL_COMPUTER,
-    PHONE,
-    TV, GadgetType;
+import java.util.HashMap;
+import java.util.Map;
 
+public enum GadgetType {
+    PHONE,
+    LAPTOP,
+    TV,
+    PERSONAL_COMPUTER,
+    MICRO_CONTROLLER
 }
