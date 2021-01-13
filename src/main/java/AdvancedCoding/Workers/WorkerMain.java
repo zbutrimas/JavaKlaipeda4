@@ -15,6 +15,9 @@ public class WorkerMain {
         for (Worker worker : workers) {
             System.out.println(worker.toString());
         }
+        System.out.println("Average age of employees: " + averageWorkersAge(workers) + " years.");
+        System.out.println("Biggest salary: " + biggestSalary(workers) + " euro.");
+        System.out.println("Youngest employee: " + youngestEmployee(workers) + " years old.");
     }
 
     private static List<Worker> readDataFromFile() {
@@ -40,5 +43,29 @@ public class WorkerMain {
                 Integer.parseInt(splitedLine[2]),
                 splitedLine[3].toCharArray()[0]
         );
+    }
+    private static double biggestSalary(List<Worker> workers) {
+        double biggestSalary = workers.get(0).getSalary();
+
+        for (Worker w : workers) {
+            biggestSalary = Math.max(w.getSalary(), biggestSalary);
+        }
+        return biggestSalary;
+    }
+    private static double averageWorkersAge (List<Worker> workers) {
+        int allSall = 0;
+
+        for (Worker w : workers) {
+            allSall += w.getAge();
+        }
+        return (double) allSall / workers.size();
+    }
+    private static int youngestEmployee(List<Worker> workers) {
+        int youngestEmployee = workers.get(0).getAge();
+
+        for (Worker w : workers) {
+            youngestEmployee = Math.min(w.getAge(), youngestEmployee);
+        }
+        return youngestEmployee;
     }
 }
